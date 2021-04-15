@@ -31,7 +31,6 @@
 body {
     background-color: var(--main-lightest-color);
     font-family: var(--main-font);
-    min-width: 900px;
     height: 100vh;
 }
 
@@ -43,6 +42,13 @@ body {
 
 .main-menu {
     background-color: var(--main-darker-color);
+}
+
+@media (max-width: 900px) {
+    .main {
+        justify-content: center;
+        height: auto;
+    }
 }
 
 /*
@@ -69,6 +75,13 @@ body {
     z-index: 10;
 }
 
+@media (max-width: 900px) {
+    .section-left,
+    .section-right {
+        display: none;
+    }
+}
+
 /*
  * ------
  * MIDDLE SECTION: GENERAL
@@ -81,6 +94,29 @@ body {
     align-items: center;
     flex-basis: 80%;
     margin-top: 50px;
+}
+
+.section-mid__menu {
+    display: none;
+}
+
+.section-mid h1 {
+    text-align: center;
+    font-size: var(--main-headline-fontsize);
+}
+
+@media (max-width: 900px) {
+    .section-mid {
+        flex-basis: 100%;
+    }
+
+    .section-mid__menu {
+        display: block;
+    }
+
+    .section-mid h1 {        
+        font-size: var(--mobile-headline-fontsize);
+    }
 }
 
 /*
@@ -163,6 +199,59 @@ body {
     box-shadow: -5px 5px 5px 0px #999;
 }
 
+@media (max-width: 900px) {
+    .section-mid__playfield__player__top,
+    .section-mid__playfield__computer__top {
+        margin: 0px 0px 10px 0px;
+    }
+
+    .section-mid__playfield__player__bottom__move,
+    .section-mid__playfield__computer__move {
+        padding: 10px;
+        margin: 10px;
+        width: 80px;
+        height: 80px;
+        background-color: var(--main-light-color);
+        font-size: var(--mobile-icons-fontsize);
+        box-shadow: -5px 5px 5px 0px #999;
+    }
+
+    .section-mid__playfield__player__bottom {
+        flex-direction: column;
+    }
+
+    .section-mid__playfield__computer__bottom {
+        flex-direction: column-reverse;
+    }
+
+    .section-mid__playfield__player__bottom__move div,
+    .section-mid__playfield__computer__move div {
+        width: 50px;
+        height: 50px;
+        background-color: var(--main-white-color);
+        border-radius: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .section-mid__playfield__player__bottom__score {
+        font-size: var(--mobile-icons-fontsize);
+        padding: 10px;
+        margin: 5px 0px 0px 10px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .section-mid__playfield__computer__score {
+        font-size: var(--mobile-icons-fontsize);
+        padding: 10px;
+        margin: 5px 0px 0px 10px;
+        width: 80px;
+        height: 80px;
+    }
+}
+
 /*
  * ------
  * MIDDLE SECTION: SELECTION
@@ -196,7 +285,6 @@ body {
     align-items: center;
     width: 80px;
     height: 80px;
-
 }
 
 #selection-rock:hover,
@@ -211,6 +299,30 @@ body {
     box-shadow: inset 5px 5px 5px 0px #000000;
 }
 
+@media (max-width: 900px) {
+    #selection-rock,
+    #selection-paper,
+    #selection-scissors {
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5%;
+        background-color: var(--main-white-color);
+        cursor: pointer;
+        font-size: var(--mobile-icons-fontsize);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+
+/*
+ * ------
+ * MIDDLE SECTION: START BUTTON
+ * ------
+ */
 
 .section-mid__start {
     display: flex;
@@ -230,3 +342,8 @@ body {
     box-shadow: inset 5px 5px 5px 0px #000000;
 }
 
+@media (max-width: 900px) {
+    .section-mid__start {
+        margin-bottom: 25px;
+    }
+}
