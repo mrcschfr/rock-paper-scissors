@@ -3,14 +3,74 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
         <link rel="stylesheet" href="style.css">
         <title>Rock, Paper, Scissors</title>
     </head>
     <body>
-        <h1>Rock, Paper, Scissors</h1>
-        <div>Play the legendary game (in the console, for now).</div>
-        <div>
-            <button id="startGame">Start new game</button>
+        <div class="main">
+            <div class="section-left">
+            </div>
+            <div class="section-mid">
+                <div class="section-mid__header">
+                    <h1>Rock, Paper, Scissors</h1>
+                </div>
+                <div class="section-mid__playfield">
+                    <div class="section-mid__playfield__player">
+                        <div class="section-mid__playfield__player__top">
+                            <span>YOU</span>
+                        </div>
+                        <div class="section-mid__playfield__player__bottom">
+                            <div class="section-mid__playfield__player__bottom__move">
+                                <div>
+                                    <span>✋🏻</span>
+                                </div>
+                            </div>
+                            <div class="section-mid__playfield__player__bottom__score">
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-mid__playfield__computer">
+                        <div class="section-mid__playfield__computer__top">
+                            <span>COMPUTER</span>
+                        </div>
+                        <div class="section-mid__playfield__computer__bottom">
+                            <div class="section-mid__playfield__computer__score">
+                                <div>2</div>
+                            </div>
+                            <div class="section-mid__playfield__computer__move">
+                                <div>
+                                    <span>✋🏻</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-mid__selection">
+                    <div id="statusMessage">Choose wisely</div>
+                    <div class="section-mid__selection__choices">
+                        <div id="selection-rock">
+                           <div>✊🏻</div>
+                        </div>
+                        <div id="selection-paper">
+                            <div>🤚🏻</div>
+                        </div>
+                        <div id="selection-scissors">
+                            <div>✌🏻</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-mid__start">
+                    <div id="statusMessage">Restart game</div>
+                 </div>
+            </div>
+            <div class="section-right">
+                <div class="section-right__menu">
+                    ☰
+                </div>
+            </div>
         </div>
         <script src="script.js"></script>
     </body>

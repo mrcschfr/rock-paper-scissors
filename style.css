@@ -1,3 +1,232 @@
-div {
-    margin: 15px 0px 15px 0px;
+/*
+ * ------
+ * CUSTOM PROPERTIES
+ * ------
+ */
+
+:root {
+    --main-white-color: #ffffff;
+    --main-lightest-color: #F4F1DE;
+    --main-lighter-color: #F7E0BA;
+    --main-light-color: #F2CC8F;
+    --main-dark-color: #E07A5F;
+    --main-darker-color: #3D405B;
+    --main-darker-color-transparent: rgba(61, 64, 91, 0.95);
+    --sides-bg-color: #fff;
+    --main-font: "Press Start 2P", sans-serif;
+    --main-headline-fontsize: 32px;
+    --main-icons-fontsize: 42px;
+    --main-text-fontsize: 14px;
+    --mobile-headline-fontsize: 18px;
+    --mobile-icons-fontsize: 30px;
+    --mobile-text-fontsize: 12px;
 }
+
+/*
+ * ------
+ * GENERAL
+ * ------
+ */
+
+body {
+    background-color: var(--main-lightest-color);
+    font-family: var(--main-font);
+    min-width: 900px;
+    height: 100vh;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.main-menu {
+    background-color: var(--main-darker-color);
+}
+
+/*
+ * ------
+ * LEFT & RIGHT SECTION
+ * ------
+ */
+
+.section-left,
+.section-right {
+    background-color: var(--main-white-color);
+    flex-basis: 10%;
+}
+
+.section-right {
+    display: flex;
+    justify-content: center;
+}
+
+.section-right__menu {
+    margin-top: 50px;
+    font-size: var(--main-icons-fontsize);
+    cursor: pointer;
+    z-index: 10;
+}
+
+/*
+ * ------
+ * MIDDLE SECTION: GENERAL
+ * ------
+ */
+
+.section-mid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 80%;
+    margin-top: 50px;
+}
+
+/*
+ * ------
+ * MIDDLE SECTION: PLAYFIELD
+ * ------
+ */
+
+.section-mid__playfield {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.section-mid__playfield__player,
+.section-mid__playfield__computer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-mid__playfield__player__top,
+.section-mid__playfield__computer__top {
+    margin: 0px 0px 10px 25px;
+}
+
+.section-mid__playfield__player__bottom,
+.section-mid__playfield__computer__bottom {
+    display: flex;
+}
+
+.section-mid__playfield__player__bottom__move,
+.section-mid__playfield__computer__move {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    margin: 25px;
+    width: 120px;
+    height: 120px;
+    background-color: var(--main-light-color);
+    font-size: var(--main-icons-fontsize);
+    box-shadow: -5px 5px 5px 0px #999;
+}
+
+.section-mid__playfield__player__bottom__move div,
+.section-mid__playfield__computer__move div {
+    width: 80px;
+    height: 80px;
+    background-color: var(--main-white-color);
+    border-radius: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-mid__playfield__player__bottom__score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    margin: 25px 25px 25px 0px;
+    width: 60px;
+    height: 120px;
+    background-color: var(--main-lighter-color);
+    font-size: var(--main-icons-fontsize);
+    box-shadow: -5px 5px 5px 0px #999;
+}
+
+.section-mid__playfield__computer__score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    margin: 25px 0px 25px 25px;
+    width: 60px;
+    height: 120px;
+    background-color: var(--main-lighter-color);
+    font-size: var(--main-icons-fontsize);
+    box-shadow: -5px 5px 5px 0px #999;
+}
+
+/*
+ * ------
+ * MIDDLE SECTION: SELECTION
+ * ------
+ */
+
+.section-mid__selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.section-mid__selection__choices {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#selection-rock,
+#selection-paper,
+#selection-scissors {
+    padding: 25px;
+    margin: 25px;
+    border-radius: 5%;
+    background-color: var(--main-white-color);
+    cursor: pointer;
+    font-size: var(--main-icons-fontsize);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+
+}
+
+#selection-rock:hover,
+#selection-paper:hover,
+#selection-scissors:hover {
+    background-color: var(--main-dark-color);
+}
+
+#selection-rock:active,
+#selection-paper:active,
+#selection-scissors:active {
+    box-shadow: inset 5px 5px 5px 0px #000000;
+}
+
+
+.section-mid__start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background-color: rgb(240, 226, 226);
+    margin-top: 25px;
+}
+
+.section-mid__start:hover {
+    background-color: var(--main-dark-color);
+    cursor: pointer;
+}
+
+.section-mid__start:active {
+    box-shadow: inset 5px 5px 5px 0px #000000;
+}
+

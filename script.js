@@ -117,5 +117,3 @@ function game(iterations) {
 // ---------
 // MAIN LOOP
 // ---------
-
-document.getElementById("startGame").onclick = () => game(3);
