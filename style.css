@@ -152,7 +152,7 @@ body {
 }
 
 .section-mid__playfield__player__bottom__move,
-.section-mid__playfield__computer__move {
+.section-mid__playfield__computer__bottom__move {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,20 +161,43 @@ body {
     width: 120px;
     height: 120px;
     background-color: var(--main-light-color);
+    border-radius: 5%;
+    border: 3px solid black;
     font-size: var(--main-icons-fontsize);
     box-shadow: -5px 5px 5px 0px #999;
 }
 
 .section-mid__playfield__player__bottom__move div,
-.section-mid__playfield__computer__move div {
+.section-mid__playfield__computer__bottom__move div {
     width: 80px;
     height: 80px;
     padding: 25px;
     background-color: var(--main-white-color);
+    border: 3px solid black;
     border-radius: 5%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.thinking {
+    animation-duration: 0.5s;
+    animation-name: thinking;
+    animation-iteration-count: 2;
+}
+
+@keyframes thinking {
+    0% {
+        transform: scale(1.0);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1.0);
+    }
 }
 
 .section-mid__playfield__player__bottom__score {
@@ -183,6 +206,8 @@ body {
     justify-content: center;
     padding: 25px;
     margin: 25px 25px 25px 0px;
+    border-radius: 5%;
+    border: 3px solid black;
     width: 60px;
     height: 120px;
     background-color: var(--main-lighter-color);
@@ -190,12 +215,14 @@ body {
     box-shadow: -5px 5px 5px 0px #999;
 }
 
-.section-mid__playfield__computer__score {
+.section-mid__playfield__computer__bottom__score {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 25px;
     margin: 25px 0px 25px 25px;
+    border-radius: 5%;
+    border: 3px solid black;
     width: 60px;
     height: 120px;
     background-color: var(--main-lighter-color);
@@ -210,7 +237,7 @@ body {
     }
 
     .section-mid__playfield__player__bottom__move,
-    .section-mid__playfield__computer__move {
+    .section-mid__playfield__computer__bottom__move {
         padding: 10px;
         margin: 10px;
         width: 80px;
@@ -229,7 +256,7 @@ body {
     }
 
     .section-mid__playfield__player__bottom__move div,
-    .section-mid__playfield__computer__move div {
+    .section-mid__playfield__computer__bottom__move div {
         width: 60px;
         height: 60px;
         padding: 5px;
@@ -244,7 +271,7 @@ body {
         height: 80px;
     }
 
-    .section-mid__playfield__computer__score {
+    .section-mid__playfield__computer__bottom__score {
         font-size: var(--mobile-icons-fontsize);
         padding: 10px;
         margin: 5px 0px 0px 10px;
@@ -281,8 +308,9 @@ body {
 #selection-scissors {
     padding: 25px;
     margin: 25px;
-    border-radius: 5%;
     background-color: var(--main-white-color);
+    border-radius: 5%;
+    border: 3px solid black;
     cursor: pointer;
     font-size: var(--main-icons-fontsize);
     display: flex;
@@ -310,7 +338,6 @@ body {
     #selection-scissors {
         padding: 5px;
         margin: 5px;
-        border-radius: 5%;
         background-color: var(--main-white-color);
         cursor: pointer;
         font-size: var(--mobile-icons-fontsize);
@@ -335,6 +362,8 @@ body {
     padding: 25px;
     background-color: rgb(240, 226, 226);
     margin-top: 25px;
+    border-radius: 5%;
+    border: 3px solid black;
 }
 
 .section-mid__start:hover {

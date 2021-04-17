@@ -114,6 +114,146 @@ function game(iterations) {
     }
 }
 
+function updatePlayerSelection(selection) {
+    // Update the global variable
+    playerMove = selection;
+
+    // Update the UI
+    switch(selection) {
+        case "rock":
+            document.getElementById("playerSelection").innerText = "✊🏻";
+            break;
+        case "paper":
+            document.getElementById("playerSelection").innerText = "🤚🏻";
+            break;
+        case "scissors":
+            document.getElementById("playerSelection").innerText = "✌🏻";
+            break;
+    }
+}
+
+function updateComputerSelection(selection) {
+    // Update the global variable
+    computerMove = selection;
+
+    // Update the UI
+    switch(selection) {
+        case "rock":
+            document.getElementById("computerSelection").innerText = "✊🏻";
+            break;
+        case "paper":
+            document.getElementById("computerSelection").innerText = "🤚🏻";
+            break;
+        case "scissors":
+            document.getElementById("computerSelection").innerText = "✌🏻";
+            break;
+    }
+}
+
+function updatePlayerScore() {
+    document.getElementById("playerScore").innerText = scorePlayer;
+}
+
+function updateComputerScore() {
+    document.getElementById("computerScore").innerText = scoreComputer;
+}
+
+function updateStatusMessage(message) {
+    document.getElementById("statusMessage").innerText = message;
+}
+
+function makeComputerMove() {
+    let elem = document.getElementById("computerSelection");
+
+    // Add class 'thinking' to trigger the animation
+    elem.innerText = '🤖'
+    elem.classList.add("thinking");
+
+   // Afterwards, no further action is necessary, since we have an event handler that automatically triggers when the animation is finished.
+}
+
 // ---------
-// MAIN LOOP
+// GLOBAL VARIABLES
 // ---------
+
+let scorePlayer = 0;
+let scoreComputer = 0;
+let playerMove = null;
+let computerMove = null;
+let isGameOver = false;
+
+// ---------
+// EVENTS
+// ---------
+
+document.getElementById("selection-rock").addEventListener('click', () => {
+    if (!isGameOver) {
+        updateStatusMessage("<calculating>");
+        updatePlayerSelection("rock");
+        makeComputerMove();
+    } else {
+        updateStatusMessage("To go on, start a new game.");
+    }
+});
+
+document.getElementById("selection-paper").addEventListener('click', () => {
+    if (!isGameOver) {
+        updateStatusMessage("<calculating>");
+        updatePlayerSelection("paper");
+        makeComputerMove();
+    } else {
+        updateStatusMessage("To go on, start a new game.");
+    }
+});
+
+document.getElementById("selection-scissors").addEventListener('click', () => {
+    if (!isGameOver) {
+        updateStatusMessage("<calculating>");
+        updatePlayerSelection("scissors");
+        makeComputerMove();
+    } else {
+        updateStatusMessage("To go on, start a new game.");
+    }
+});
+
+document.getElementById("restartButton").addEventListener('click', () => {
+    scorePlayer = 0;
+    scoreComputer = 0;
+    isGameOver = false;
+    updateComputerScore();
+    updatePlayerScore();
+});
+
+// This event listener will trigger as soon as the animation/ the 'thinking process' is over
+document.getElementById("computerSelection").addEventListener('animationend', () => {
+    // Let's remove class 'thinking'
+    document.getElementById("computerSelection").classList.remove("thinking");
+    
+    // Now we can calculate the computer's move and display it
+    updateComputerSelection(getComputerMove());  
+
+    // Let's see who won
+    let winner = checkWinner(computerMove, playerMove);
+
+    if (winner === "computer") {
+        scoreComputer++;
+        updateComputerScore();
+        if (scoreComputer == 5) {
+            isGameOver = true;
+            updateStatusMessage("Too bad, the computer won this game. What about a restart?");
+        } else {
+            updateStatusMessage("Dang! +1 for the computer. Your move, now.");
+        }
+    } else if (winner === "player") {
+        scorePlayer++;
+        updatePlayerScore();
+        if (scorePlayer == 5) {
+            isGameOver = true;
+            updateStatusMessage("You won! Way to go! :)")
+        } else {
+            updateStatusMessage("Good choice! Go on!");
+        }
+    } else {
+        updateStatusMessage("It's a draw, wow! Choose again.")
+    }
+});
