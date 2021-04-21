@@ -4,10 +4,6 @@
 // FUNCTION DECLARATIONS
 // ---------------------
 
-function getPlayerMove() {
-    return prompt("Please enter your move [rock/ paper/ scissors]");
-}
-
 function getComputerMove() {
     // Returns a value between 0 and 2
     let choice = Math.floor(Math.random() * 3); 
@@ -74,44 +70,6 @@ function checkWinner(moveComputer, movePlayer) {
     }
 
     return winner;
-}
-
-function game(iterations) {
-    let scorePlayer = 0;
-    let scoreComputer = 0;
-    let playerMove;
-    let computerMove;
-    let winner;
-
-    for (let i = 0; i < iterations; i++) {
-        playerMove = getPlayerMove();
-        computerMove = getComputerMove();
-        winner = checkWinner(computerMove, playerMove);
-
-        console.log(`You chose ${playerMove}, the computer chose ${computerMove}`);
-
-        if (winner === "computer") {
-            console.log("The computer won this round.")
-            scoreComputer++;
-        } 
-        
-        if (winner === "player") {
-            console.log("You won this round!")
-            scorePlayer++;
-        }
-
-        console.log(`SCORE --- You: ${scorePlayer} --- Computer: ${scoreComputer}`);
-    }
-
-    console.log("%cGame over", "font-weight: bold");
-
-    if (scorePlayer > scoreComputer) {
-        console.log("%cYou won! Way to go!", "color: green");
-    } else if (scorePlayer < scoreComputer) {
-        console.log("%cThe computer won. Too bad.", "color: red");
-    } else {
-        console.log("Looks like a draw. You should try again!");
-    }
 }
 
 function updatePlayerSelection(selection) {
