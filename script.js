@@ -222,6 +222,7 @@ document.getElementById("restartButton").addEventListener('click', () => {
     isGameOver = false;
     updateComputerScore();
     updatePlayerScore();
+    updateStatusMessage("It's your turn. Choose wisely!");
 });
 
 // This event listener will trigger as soon as the animation/ the 'thinking process' is over
@@ -240,20 +241,43 @@ document.getElementById("computerSelection").addEventListener('animationend', ()
         updateComputerScore();
         if (scoreComputer == 5) {
             isGameOver = true;
-            updateStatusMessage("Too bad, the computer won this game. What about a restart?");
+            updateStatusMessage("Too bad, the computer won this game.");
         } else {
-            updateStatusMessage("Dang! +1 for the computer. Your move, now.");
+            updateStatusMessage("Dang! Computer scored.");
         }
     } else if (winner === "player") {
         scorePlayer++;
         updatePlayerScore();
         if (scorePlayer == 5) {
             isGameOver = true;
-            updateStatusMessage("You won! Way to go! :)")
+            updateStatusMessage("You won! Way to go!")
         } else {
-            updateStatusMessage("Good choice! Go on!");
+            updateStatusMessage("Good choice, go on!");
         }
     } else {
-        updateStatusMessage("It's a draw, wow! Choose again.")
+        updateStatusMessage("Draw! Choose again.")
     }
 });
+
+let menus = document.getElementsByClassName("menu");
+
+for (let i = 0; i < menus.length; i++) {
+    menus[i].addEventListener('click', (event) => {
+        let overlay = document.getElementById("overlay");
+
+        if(overlay.classList.contains("show")) {
+            overlay.classList.remove("show");
+            overlay.classList.add("hide");
+            document.getElementsByClassName("section-mid")[0].style.overflowY = "auto";
+            document.getElementsByClassName("menu")[0].style.color = "#000000";
+            document.getElementsByClassName("menu")[1].style.color = "#000000";
+        } else {
+            overlay.classList.remove("hide");
+            overlay.classList.add("show");
+            document.getElementsByClassName("menu");
+            document.getElementsByClassName("section-mid")[0].style.overflowY = "hidden";
+            document.getElementsByClassName("menu")[0].style.color = "#ffffff";
+            document.getElementsByClassName("menu")[1].style.color = "#ffffff";
+        }
+    });
+}

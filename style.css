@@ -17,7 +17,7 @@
     --main-headline-fontsize: 32px;
     --main-icons-fontsize: 42px;
     --main-text-fontsize: 14px;
-    --mobile-headline-fontsize: 18px;
+    --mobile-headline-fontsize: 24px;
     --mobile-icons-fontsize: 30px;
     --mobile-text-fontsize: 12px;
 }
@@ -28,6 +28,10 @@
  * ------
  */
 
+html {
+    height: 100vh;
+}
+
 body {
     background-color: var(--main-lightest-color);
     font-family: var(--main-font);
@@ -37,7 +41,6 @@ body {
 .main {
     display: flex;
     flex-direction: row;
-    height: 100%;
 }
 
 .main-menu {
@@ -50,6 +53,76 @@ body {
         height: auto;
     }
 }
+
+.menu:hover {
+    cursor: pointer;
+}
+
+/*
+ * ------
+ * OVERLAY
+ * ------
+ */
+
+ #overlay {
+    position: absolute;
+    background: var(--main-darker-color);
+    color: var(--main-white-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hide {
+    top: -1000px;
+    left: -1000px;
+}
+
+.show {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay__title {
+    font-size: var(--main-headline-fontsize);
+    text-align: center;
+}
+
+.overlay__description {
+    font-size: var(--main-text-fontsize);
+    margin: 25px 0px 25px 0px;
+    text-align: center;
+}
+
+ul {
+    font-size: var(--main-text-fontsize);
+    list-style: none;
+    padding: 0px;
+    text-align: center;
+}
+
+ul li {
+    padding: 15px;
+}
+
+ul li a {
+    color: white;
+}
+
+@media (max-width: 900px) {
+    .overlay__title {
+        margin: 25px 15px 25px 15px;
+    }
+
+    .overlay__description {
+        margin: 25px 15px 25px 15px;
+    }
+}
+
+
 
 /*
  * ------
@@ -94,6 +167,7 @@ body {
     align-items: center;
     flex-basis: 80%;
     margin-top: 50px;
+    height: 100vh;
 }
 
 .section-mid__menu {
@@ -108,13 +182,16 @@ body {
 @media (max-width: 900px) {
     .section-mid {
         flex-basis: 100%;
+        height: 100vh;
+        margin-top: 0px;
     }
 
     .section-mid__menu {
         display: flex;
         align-self: flex-end;
-        margin: 0px 25px 25px 0px;
+        margin: 25px 25px 25px 0px;
         font-size: var(--mobile-icons-fontsize);
+        z-index: 10;
     }
 
     .section-mid h1 {        
@@ -278,6 +355,10 @@ body {
         width: 80px;
         height: 80px;
     }
+
+    #statusMessage {
+        height: 50px;
+    }
 }
 
 /*
@@ -301,6 +382,7 @@ body {
 
 #statusMessage {
     padding: 0px 0px 15px 0px;
+    text-align: center;
 }
 
 #selection-rock,
@@ -320,16 +402,18 @@ body {
     height: 80px;
 }
 
-#selection-rock:hover,
-#selection-paper:hover,
-#selection-scissors:hover {
-    background-color: var(--main-dark-color);
-}
-
 #selection-rock:active,
 #selection-paper:active,
 #selection-scissors:active {
     box-shadow: inset 5px 5px 5px 0px #000000;
+}
+
+@media (hover: hover) {
+    #selection-rock:hover,
+    #selection-paper:hover,
+    #selection-scissors:hover {
+        background-color: var(--main-dark-color);
+    }
 }
 
 @media (max-width: 900px) {
@@ -346,6 +430,10 @@ body {
         align-items: center;
         width: 60px;
         height: 60px;
+    }
+
+    .section-mid__selection {
+        margin: 50px 25px 25px 25px;
     }
 }
 
@@ -366,13 +454,15 @@ body {
     border: 3px solid black;
 }
 
-.section-mid__start:hover {
-    background-color: var(--main-dark-color);
-    cursor: pointer;
-}
-
 .section-mid__start:active {
     box-shadow: inset 5px 5px 5px 0px #000000;
+}
+
+@media (hover: hover) {
+    .section-mid__start:hover {
+        background-color: var(--main-dark-color);
+        cursor: pointer;
+    }
 }
 
 @media (max-width: 900px) {
