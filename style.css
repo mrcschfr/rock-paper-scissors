@@ -122,8 +122,6 @@ ul li a {
     }
 }
 
-
-
 /*
  * ------
  * LEFT & RIGHT SECTION
@@ -439,11 +437,11 @@ ul li a {
 
 /*
  * ------
- * MIDDLE SECTION: START BUTTON
+ * MIDDLE SECTION: STATUS MESSAGE
  * ------
  */
 
-.section-mid__start {
+.section-mid__button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -452,21 +450,22 @@ ul li a {
     margin-top: 25px;
     border-radius: 5%;
     border: 3px solid black;
+    cursor: pointer;
 }
 
-.section-mid__start:active {
+.section-mid__button:active {
     box-shadow: inset 5px 5px 5px 0px #000000;
 }
 
 @media (hover: hover) {
-    .section-mid__start:hover {
+    .section-mid__button:hover {
         background-color: var(--main-dark-color);
         cursor: pointer;
     }
 }
 
 @media (max-width: 900px) {
-    .section-mid__start {
+    .section-mid__button {
         margin-bottom: 25px;
     }
 }
